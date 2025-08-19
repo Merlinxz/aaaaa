@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>My Profile</title>
+
+    <!-- Sarabun Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="font-sarabun overflow-hidden">
+    <!-- กันสกอลล์ -->
+    <!-- Background wrapper -->
+    <div class="relative vh-screen flex items-center justify-center text-center overflow-hidden">
+
+        <!-- Background Image Fallback -->
+        <div id="bg-fallback" class="absolute inset-0 bg-cover bg-center bg-no-repeat hidden"
+            style="background-image:url('fallback.jpg');">
+        </div>
+
+        <!-- Background Video -->
+        <video id="bg-video" class="bg-video" autoplay muted loop playsinline preload="metadata" poster="fallback.jpg"
+            disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
+            <source src="2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/20" aria-hidden="true"></div>
+
+        <!-- Controls -->
+        <div class="absolute top-safe right-safe z-20 flex gap-2">
+            <button id="playToggle"
+                class="inline-flex items-center justify-center rounded-full bg-white/20 backdrop-blur p-2 text-white hover:bg-white/30 transition"
+                title="Play/Pause background video" aria-label="Play/Pause">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+            <button id="muteToggle"
+                class="inline-flex items-center justify-center rounded-full bg-white/20 backdrop-blur p-2 text-white hover:bg-white/30 transition"
+                title="Mute/Unmute background video" aria-label="Mute/Unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col items-center px-4 max-w-sm w-full">
+            <img src="https://i.pravatar.cc/200" alt="Profile Picture"
+                class="w-28 h-28 rounded-full mx-auto border-4 border-blue-500 shadow-md">
+
+            <h1 class="mt-4 text-2xl sm:text-3xl font-bold text-white">John Doe</h1>
+            <p class="text-gray-200 text-sm sm:text-base">Web Developer | Designer | Creator</p>
+
+            <div class="flex space-x-6 mt-6">
+                <a href="https://www.instagram.com/unknowns__exe/" target="_blank" rel="noopener noreferrer"
+                    class="social-btn">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Merlinxz" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://discord.gg/4YqpHFA6mY" target="_blank" rel="noopener noreferrer"
+                    class="social-btn discord-btn">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+
+            <p id="autoPlayNote" class="mt-3 text-xs text-gray-200 hidden">
+                Tip: Autoplay ถูกบล็อก—กด <span class="font-semibold">Play</span> มุมขวาบน
+            </p>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

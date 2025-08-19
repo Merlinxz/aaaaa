@@ -1,0 +1,81 @@
+/* Base */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* กันสกอลล์ทั้งหมด */
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #000;
+}
+
+/* หน้าจอสูง = 100 * var(--vh) เพื่อแก้ 100vh บนมือถือ */
+.vh-screen {
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
+}
+
+/* วิดีโอพื้นหลังเต็มจอ */
+video.bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background: #000;
+    /* กันวาบขาว */
+}
+
+/* ปุ่มโซเชียล */
+.social-btn {
+    font-size: 1.8rem;
+    color: #e5e7eb;
+    /* gray-200 */
+    transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease;
+    padding: 0.6rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn:hover,
+.social-btn:active {
+    transform: scale(1.15);
+}
+
+.social-btn[href*="instagram"]:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #fff;
+}
+
+.social-btn[href*="github"]:hover {
+    background: #181717;
+    color: #fff;
+}
+
+.discord-btn:hover {
+    background: #5865F2;
+    color: #fff;
+}
+
+/* ปุ่มชิดขอบปลอดภัย (iOS notch) */
+.top-safe {
+    top: max(1rem, env(safe-area-inset-top));
+}
+
+.right-safe {
+    right: max(1rem, env(safe-area-inset-right));
+}
+
+/* ผู้ใช้ที่ขอลด motion */
+@media (prefers-reduced-motion: reduce) {
+    video.bg-video {
+        animation: none !important;
+    }
+}
